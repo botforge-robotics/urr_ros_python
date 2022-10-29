@@ -6,7 +6,7 @@
 # Create package
 catkin_create_pkg urr_p_01_pub_sub std_msgs rospy
 ```
-This will create a urr_p_01_pub_sub folder which contains a package.xml and a CMakeLists.txt, which have been partially filled out with the information you gave catkin_create_pkg.
+This will create a `urr_p_01_pub_sub` folder which contains a `package.xml` and a `CMakeLists.txt`, which have been partially filled out with the information you gave catkin_create_pkg.
 
 *usage:*
 ```bash
@@ -143,7 +143,6 @@ catkin_make
     [INFO] [WallTime: 1314931832.775497] hello world 1314931832.77
     [INFO] [WallTime: 1314931833.778937] hello world 1314931833.78
     [INFO] [WallTime: 1314931834.782059] hello world 1314931834.78
-    
     ```
    
 - ####  Running the Subscriber
@@ -157,7 +156,6 @@ catkin_make
     [INFO] [WallTime: 1314931970.262246] /listener heard hello world 1314931970.26
     [INFO] [WallTime: 1314931971.266348] /listener heard hello world 1314931971.26
     [INFO] [WallTime: 1314931972.270429] /listener heard hello world 1314931972.27
-    
    ```
 
 When you are done, press Ctrl-C to terminate both the publisher and the subscriber.

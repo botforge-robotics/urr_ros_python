@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>urr_p_01_pub_sub</name>
-  <version>0.0.0</version>
+  <version>0.0.1</version>
   <description>The urr_p_01_pub_sub package</description>
-  <maintainer email="chaitu@todo.todo">chaitu</maintainer>
+  <maintainer email="nagachaitanya948@gmail.com">chaitu</maintainer>
   <license>MIT</license>
 
   <!-- The *depend tags are used to specify dependencies -->
