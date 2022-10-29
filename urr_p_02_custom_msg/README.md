@@ -140,7 +140,14 @@ def subscriber():
 if __name__ == '__main__':
     subscriber()
 ```
+### 7. Using custom message in another package
+If you are using the new custom message defined in a different package, remember to add:
 
-### 7. Usefull commands
+- to `package.xml`:
+```xml
+<build_depend>name_of_package_containing_custom_msg</build_depend>
+<exec_depend>name_of_package_containing_custom_msg</exec_depend>
+```
+### 8. Usefull commands
 Cheat Sheet [click here](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
 Ros Wiki [click here](http://wiki.ros.org/ROS/CommandLineTools)
