@@ -69,7 +69,7 @@ cd launch
 
   </launch>
   ```
-  ### 3. run launch file
+### 3. run launch file
 - usage
   ```bash
   roslaunch <package_name> <launch_file_name>
@@ -79,3 +79,8 @@ cd launch
   ```bash
   roslaunch urr_p_06_launchfile_params urr_01_pub.launch 
   ```
+  For more info about roslaunch [click here](http://wiki.ros.org/roslaunch)
+
+### 4. Usefull commands
+Cheat Sheet [click here](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
+Ros Wiki [click here](http://wiki.ros.org/ROS/CommandLineTools)
