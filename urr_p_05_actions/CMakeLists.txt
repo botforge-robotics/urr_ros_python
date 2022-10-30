@@ -165,6 +165,7 @@ include_directories(
 # DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
 catkin_install_python(PROGRAMS scripts/action_server.py scripts/action_client.py
+  scripts/action_client_nowait.py scripts/action_client_preemting.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

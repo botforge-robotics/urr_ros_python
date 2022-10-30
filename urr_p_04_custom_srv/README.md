@@ -22,10 +22,12 @@ touch srv/AddTwoInts.srv    # Create 'AddTwoInts.srv' file in srv folder
 ```
 
 - Now edit the `AddTwoInts.srv` file
-```txt
+```bash
+#request definition
 int64 a
 int64 b
 ---
+#responce definition
 int64 sum
 ```
 - Now add below line to `package.xml`  file
@@ -57,7 +59,7 @@ int64 sum
   ```bash
   catkin_package(
     ...
-    CATKIN_DEPENDS message_runtime ...
+    CATKIN_DEPENDS rospy message_runtime ...
     ...)
   ```
   - Now uncomment *generate_messages()* function.
@@ -188,6 +190,6 @@ catkin_make
 When you are done, press Ctrl-C to terminate  the server node.
 
 
-### 8. Usefull commands
+### 9. Usefull commands
 Cheat Sheet [click here](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
 Ros Wiki [click here](http://wiki.ros.org/ROS/CommandLineTools)
