@@ -231,20 +231,6 @@ if __name__ == '__main__':
 `~action_client_preemting.py`
 ```python
 ....
-    # Creates a goal to send to the action server.
-    goal = FibonacciGoal(order=20)
-    # Sends the goal to the action server.
-    client.send_goal(goal)
-    # Goal State
-    # PENDING = 0
-    # ACTIVE = 1
-    # DONE = 2
-    # WARN = 3
-    # ERROR = 4
-
-    result_state = client.get_state()
-    rate = rospy.Rate(1)
-    rospy.loginfo("result_state: "  + str(result_state))
     counter = 0
     while result_state < 2:
         rospy.loginfo("doing some other stuff while waiting for result...")
