@@ -99,6 +99,7 @@ if __name__ == '__main__':
 ```
 ### 4. Making script executable
 ```bash
+roscd urr_p_01_pub_sub/scripts
 # set permission to these files as executable 
 chmod +x publisher.py
 chmod +x subscriber.py
@@ -112,7 +113,7 @@ catkin_install_python(PROGRAMS scripts/publisher.py scripts/subscriber.py
 ```
 ### 6. Building your nodes
 ```bash
-cd ~/catkin_ws
+roscd ; cd ..   #~/catkin_ws
 catkin_make
 ```
 ### 7. Running nodes

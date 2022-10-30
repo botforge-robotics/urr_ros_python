@@ -66,7 +66,7 @@ uint8 age
 
 ### 3. Build package and messages
 ```bash
-cd ~/catkin_ws
+roscd ; cd ..   #~/catkin_ws
 catkin_make
 ```
 ### 4. Using rosmsg
@@ -92,7 +92,7 @@ catkin_make
   uint8 age
   ````
 ### 5. Using custom msg in publisher node
-
+`~customPublisher.py`
 ```python
 #!/usr/bin/env python3
 
@@ -119,7 +119,7 @@ if __name__ == '__main__':
         pass
 ```
 ### 6. Using custom msg in subscriber node
-
+`~customSubscriber.py`
 ```python
 #!/usr/bin/env python3
 
@@ -140,6 +140,12 @@ def subscriber():
 if __name__ == '__main__':
     subscriber()
 ```
+Don't forget to make the nodes executable:
+
+ ```bash
+ chmod +x scripts/customPublisher.py
+ chmod +x scripts/customSubscriber.py
+ ```
 ### 7. Using custom message in another package
 If you are using the new custom message defined in a different package, remember to add:
 
