@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- including launch file -->
+    <include file="$(find urr_p_06_launchfile_params)/launch/urr_01_pub.launch"></include>
+
+    <!-- add two ints service server -->
+    <node pkg="urr_p_04_custom_srv" type="add_two_ints_server.py" name="add_two_ints_server" output="screen" ></node>
+
+    <!-- action server node -->
+    <node pkg="urr_p_05_actions" type="action_server.py" name="action_server" output="screen" ></node>
+
+</launch>

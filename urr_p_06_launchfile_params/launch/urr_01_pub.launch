@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Hello world publisher -->
+    <node pkg="urr_p_01_pub_sub" type="publisher.py" name="publisher" output="log" />
+    <!-- Custom msg publisher -->
+    <node pkg="urr_p_02_custom_msg" type="customPublisher.py" name="customPublisher" output="log" />
+</launch>

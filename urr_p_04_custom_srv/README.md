@@ -141,12 +141,12 @@ def usage():
     return "%s [x y]"%sys.argv[0]
 
 if __name__ == "__main__":
-    if len(sys.argv) == 3:
-        x = int(sys.argv[1])
-        y = int(sys.argv[2])
-    else:
+    if len(sys.argv) < 3:
         print(usage())
         sys.exit(1)
+    else:
+        x = int(sys.argv[1])
+        y = int(sys.argv[2])
     print("Requesting %s+%s"%(x, y))
     print("%s + %s = %s"%(x, y, add_two_ints_client(x, y)))
 ```

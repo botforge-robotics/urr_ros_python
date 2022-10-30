@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="a" default="1"/>
+	<arg name="b" default="2"/>
+
+    <!-- params (more about params will be learn in ros navigation section)-->
+    <param name="package_name" value="urr_p_06_launchfile_params"/>
+    
+    <!-- add two ints client node -->
+    <node pkg="urr_p_04_custom_srv" type="add_two_ints_client.py" name="add_two_ints_client" output="screen" args="$(arg a) $(arg b)"/>
+
+</launch>
