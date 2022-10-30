@@ -37,10 +37,15 @@ uint8 age
   - Add the *message_generation* dependency to the find_package 
   ```bash
   find_package(catkin REQUIRED COMPONENTS
-    roscpp
     rospy
-    std_msgs
     message_generation
+  )
+  ```
+  - Uncomment add_message_files() by removing the # symbols and add Person.msg file, such that it looks like this:
+  ```bash
+  add_message_files(
+    FILES
+    Person.msg
   )
   ```
   - Add *message_runtime* to *CATKIN_DEPENDS*.
@@ -49,13 +54,6 @@ uint8 age
     ...
     CATKIN_DEPENDS message_runtime ...
     ...)
-  ```
-  - Uncomment add_message_files() by removing the # symbols and add Person.msg file, such that it looks like this:
-  ```bash
-  add_message_files(
-    FILES
-    Person.msg
-  )
   ```
   - Now uncomment *generate_messages()* function.
   ```bash
@@ -143,8 +141,8 @@ if __name__ == '__main__':
 Don't forget to make the nodes executable:
 
  ```bash
- chmod +x scripts/customPublisher.py
- chmod +x scripts/customSubscriber.py
+ chmod +x customPublisher.py
+ chmod +x customSubscriber.py
  ```
 ### 7. Using custom message in another package
 If you are using the new custom message defined in a different package, remember to add:

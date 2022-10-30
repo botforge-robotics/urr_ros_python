@@ -2,7 +2,7 @@
 
 import sys
 import rospy
-from rospy_tutorials.srv import *
+from urr_p_04_custom_srv.srv import *
 
 def add_two_ints_client(x, y):
     rospy.wait_for_service('add_two_ints')

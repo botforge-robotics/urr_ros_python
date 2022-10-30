@@ -1,5 +1,5 @@
 # 03 Services(Python)
-Here we'll create the service ("add_two_ints_server") node which will receive two ints and return the sum.
+Here we'll create the service ("dht") which will return temp and humidity upon calling that service.
 
 ### 1. Create Package
 - Change directory into `~catkin_ws/src/urr_ros_python/` stack folder.
@@ -24,30 +24,36 @@ cd scripts
 - Write server node
 ```bash
 # get the server python script from repo
-wget https://gitlab.com/UnrealRobotics/urr_ros_python/-/tree/main/urr_p_03_services/scripts/add_two_ints_server.py
+wget https://gitlab.com/UnrealRobotics/urr_ros_python/-/tree/main/urr_p_03_services/scripts/server.py
 # or
-# creates file with name add_two_ints_server.py
-touch add_two_ints_server.py
+# creates file with name server.py
+touch server.py
 ```
 Write the Code
 ```python
 #!/usr/bin/env python3
 
-from rospy_tutorials.srv import AddTwoInts,AddTwoIntsResponse
+from std_srvs.srv import Trigger,TriggerResponse
 import rospy
 
-def handle_add_two_ints(req):
-    print("Returning [%s + %s = %s]"%(req.a, req.b, (req.a + req.b)))
-    return AddTwoIntsResponse(req.a + req.b)
+def handle_request(req):
+    resp = TriggerResponse() #variable to store responce data
+    # do some sensor data collection
+    temperature = 26
+    humdidity = 69
+    # end data collection
+    resp.success = True
+    resp.message = "The temp is {}c and humidity is {}%.".format(temperature,humdidity)
+    return resp
 
-def add_two_ints_server():
-    rospy.init_node('add_two_ints_server')
-    s = rospy.Service('add_two_ints', AddTwoInts, handle_add_two_ints)
-    print("Ready to add two ints.")
+def dht_server():
+    rospy.init_node('dht_server')
+    s = rospy.Service('dht', Trigger, handle_request)
+    print("Ready to collect temp. humid. data!")
     rospy.spin()
 
 if __name__ == "__main__":
-    add_two_ints_server()
+    dht_server()
 ```
 ### 3. Creating Client node
 - Change directory into `~urr_p_03_services/scripts/`.
@@ -62,53 +68,45 @@ cd scripts
 - Write client node
 ```bash
 # get the client python script from repo
-wget https://gitlab.com/UnrealRobotics/urr_ros_python/-/tree/main/urr_p_03_services/scripts/add_two_ints_client.py
+wget https://gitlab.com/UnrealRobotics/urr_ros_python/-/tree/main/urr_p_03_services/scripts/client.py
 # or
-# creates file with name add_two_ints_client.py
-touch add_two_ints_client.py
+# creates file with name client.py
+touch client.py
 ```
 Write the Code
 ```python
 #!/usr/bin/env python3
 
-import sys
 import rospy
-from rospy_tutorials.srv import *
+from std_srvs.srv import Trigger, TriggerRequest
 
-def add_two_ints_client(x, y):
-    rospy.wait_for_service('add_two_ints')
+def client():
+    rospy.wait_for_service('dht')
     try:
-        add_two_ints = rospy.ServiceProxy('add_two_ints', AddTwoInts)
-        resp1 = add_two_ints(x, y)
-        return resp1.sum
+        dht_client = rospy.ServiceProxy('dht', Trigger)
+        resp = dht_client(TriggerRequest())
+        if(resp.success):
+            print(resp.message)
+        else:
+            print("failed to get data")
     except rospy.ServiceException as e:
         print("Service call failed: %s"%e)
 
-def usage():
-    return "%s [x y]"%sys.argv[0]
-
 if __name__ == "__main__":
-    if len(sys.argv) == 3:
-        x = int(sys.argv[1])
-        y = int(sys.argv[2])
-    else:
-        print(usage())
-        sys.exit(1)
-    print("Requesting %s+%s"%(x, y))
-    print("%s + %s = %s"%(x, y, add_two_ints_client(x, y)))
+    client()
 ```
 ### 4. Making script executable
 ```bash
 roscd urr_p_03_services/scripts
 # set permission to these files as executable 
-chmod +x add_two_ints_server.py
-chmod +x add_two_ints_client.py
+chmod +x server.py
+chmod +x client.py
 ```
 ### 5. Adding script to cmake
 Edit the `catkin_install_python()` call in your CMakeLists.txt so it looks like the following:
 ```cmake
-catkin_install_python(PROGRAMS scripts/add_two_ints_server.py 
-  scripts/add_two_ints_client.py
+catkin_install_python(PROGRAMS scripts/server.py 
+  scripts/client.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 ```
@@ -122,18 +120,62 @@ catkin_make
    
     ```bash
     roscore # Make sure that a roscore is up and running
-    rosrun urr_p_03_services add_two_ints_server.py
+    rosrun urr_p_03_services server.py
     ```
-  
-- ####  Running the client
-   run client node to send 1,2 to server to add up and get result
+- ####  Check dht service server is online and running
+    type below command
+     ```bash
+    rosservice list
+    ```
+    output:
+    ```bash
+    ....
+    /dht
+    /dht_server/get_loggers
+    /dht_server/set_logger_level
+    ....
+    ```
+    you should have to see `/dht` in the ouput list.
+- ####  get service type of `/dht` server uses
+    type below command
+     ```bash
+    rosservice type /dht
+    ```
+    output:
+    ```bash
+    std_srvs/Trigger
+    ```
+    `/dht` server uses service of above type, where `std_srvs` is package name and `Trigger` is service name.
+
+- ####  get `Trigger` service type details
+    type below command
+     ```bash
+    rossrv show std_srvs/Trigger
+    ```
+    output:
+    ```bash
+    ---
+    bool success
+    string message
+    ```
+- #### Calling service through commandline
+    type below command
    ```bash
-   rosrun urr_p_03_services add_two_ints_client.py 1 2
+    rosservice call /dht "{}" 
+    ```
+    output:
+    ```bash
+    success: True
+    message: "The temp is 26c and humidity is 69%."
+    ```
+- ####  Running the client
+   run client node
+   ```bash
+   rosrun urr_p_03_services client.py
    ```
     output:
    ```bash
-    Requesting 1+2
-    1 + 2 = 3
+    The temp is 26c and humidity is 69%.
    ```
 
 When you are done, press Ctrl-C to terminate  the server node.
