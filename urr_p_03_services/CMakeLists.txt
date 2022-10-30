@@ -20,6 +20,6 @@ include_directories(
 # ############
 # # Install ##
 # ############
-catkin_install_python(PROGRAMS scripts/add_two_ints_server.py scripts/add_two_ints_client.py
+catkin_install_python(PROGRAMS scripts/server.py scripts/client.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
