@@ -9,6 +9,7 @@ project(urr_p_05_actions)
 # # is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   rospy
+  actionlib_msgs
   message_generation
 )
 
@@ -67,6 +68,7 @@ add_action_files(
 # # Generate added messages and services with any dependencies listed here
 generate_messages(
   DEPENDENCIES
+  actionlib_msgs
 )
 
 # ###############################################
@@ -102,7 +104,7 @@ catkin_package(
 
   # INCLUDE_DIRS include
   # LIBRARIES urr_p_05_actions
-  CATKIN_DEPENDS rospy message_runtime
+  CATKIN_DEPENDS rospy actionlib_msgs message_runtime
 
   # DEPENDS system_lib
 )
@@ -162,6 +164,9 @@ include_directories(
 # scripts/my_python_script
 # DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
+catkin_install_python(PROGRAMS scripts/action_server.py scripts/action_client.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 # # Mark executables for installation
 # # See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
