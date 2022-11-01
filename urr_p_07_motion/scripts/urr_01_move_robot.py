@@ -7,8 +7,8 @@ rospy.init_node('move_robot_node')
 pub = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
 rate = rospy.Rate(2)
 move = Twist()
-move.linear.x = 0.5 #move the robot with a linear velocity in the x axis
-move.angular.z = 0.5 #move the robot with an angular velocity in the z axis
+move.linear.x = 0.5  # move the robot with a linear velocity in the x axis
+move.angular.z = 0.5  # move the robot with an angular velocity in the z axis
 
 while not rospy.is_shutdown():
     pub.publish(move)

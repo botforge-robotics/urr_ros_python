@@ -10,6 +10,8 @@ project(urr_p_07_motion)
 find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
+  actionlib_msgs
+  message_generation
 )
 
 # # System dependencies are found with CMake's conventions
@@ -52,11 +54,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 # # Generate services in the 'srv' folder
-# add_service_files(
-# FILES
-# Service1.srv
-# Service2.srv
-# )
+add_service_files(
+  FILES
+  Goal.srv
+)
 
 # # Generate actions in the 'action' folder
 # add_action_files(
@@ -66,10 +67,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 # # Generate added messages and services with any dependencies listed here
-# generate_messages(
-# DEPENDENCIES
-# std_msgs
-# )
+generate_messages(
+  DEPENDENCIES
+  std_msgs actionlib_msgs
+)
 
 # ###############################################
 # # Declare ROS dynamic reconfigure parameters ##
@@ -104,7 +105,8 @@ catkin_package(
 
   # INCLUDE_DIRS include
   # LIBRARIES urr_p_07_motion
-  # CATKIN_DEPENDS rospy std_msgs
+  CATKIN_DEPENDS rospy actionlib_msgs std_msgs message_runtime
+
   # DEPENDS system_lib
 )
 
@@ -164,6 +166,8 @@ include_directories(
 # DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
 catkin_install_python(PROGRAMS scripts/urr_01_move_robot.py
+  scripts/urr_02_odom_subscriber.py
+  scripts/urr_03_goal_to_goal.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
