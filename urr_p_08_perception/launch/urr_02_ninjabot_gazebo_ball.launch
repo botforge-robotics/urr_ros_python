@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- launch ninjabot gazebo -->
+    <include file="$(find ninjabot_simulation)/launch/gazebo.launch">
+        <arg name="world" default="empty"/>
+    </include>
+
+    <!-- cricket ball in gazebo -->
+   <node name="spawn_cricket_ball" pkg="gazebo_ros" type="spawn_model" 
+    args="-sdf -file $(find urr_p_08_perception)/models/cricket_ball/model.sdf -x -2.0 -y -2.0 -z 0.01 -model cricket_ball_model" 
+    respawn="false" output="screen" />
+</launch>

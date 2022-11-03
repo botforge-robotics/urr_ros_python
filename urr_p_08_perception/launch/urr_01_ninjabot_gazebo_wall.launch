@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- launch ninjabot gazebo -->
+    <include file="$(find ninjabot_simulation)/launch/gazebo.launch">
+        <arg name="world" default="empty"/>
+    </include>
+
+
+    <!-- push barrier in gazebo -->
+   <node name="spawn_barrier" pkg="gazebo_ros" type="spawn_model" 
+    args="-sdf -file $(find urr_p_08_perception)/models/drc_practice_orange_jersey_barrier/model.sdf -x 5.0 -y 0.0 -z 0.01 -model barrier_model" 
+    respawn="false" output="screen" />
+
+</launch>
