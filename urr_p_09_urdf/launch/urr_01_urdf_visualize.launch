@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="model" default="urr_o1_mira_simple.urdf"/>
+    <param name="robot_description" command="cat $(find urr_p_09_urdf)/urdf/$(arg model)"/>
+
+    <!--  joint state publisher gui -->
+    <node pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" name="joint_state_publisher_gui"></node>
+
+    <!-- Combine joint values -->
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"></node>
+
+    <!-- launch rviz -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find urr_p_09_urdf)/rviz/rviz.rviz"></node>
+</launch>
