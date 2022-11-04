@@ -2,7 +2,6 @@
 
 import rospy
 import cv2
-from std_msgs.msg import String
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
 import sys
@@ -47,13 +46,24 @@ def image_callback(ros_image):
     cv2.drawContours(cv_image, contours, -1, (255, 0, 0), 2)
     cv2.imshow("Image window", cv_image)
 
+    # min and max area of ball 200 and 12000
+    min_area_ball = 200
+    max_area_ball = 11000
+    ball_area = 0
+    ball_center = (0, 0)
     for c in contours:
         area = cv2.contourArea(c)
         cx, cy = get_contour_center(c)
-        print("Area: {}".format(area))
-    print("number of contours: {}".format(len(contours)))
+        # print("Area: {}".format(area))
+        if (area > min_area_ball):
+            ball_center = (cx, cy)
+            ball_area = area
+    # print("number of contours: {}".format(len(contours)))
 
-    # min and max area of ball 200 and 12000
+    # if ball detected
+    if (ball_area > min_area_ball):
+        print("ball center x:{}, y:{}, and area is {}.".format(
+            ball_center[0], ball_center[1], ball_area))
     cv2.waitKey(3)
 
 
