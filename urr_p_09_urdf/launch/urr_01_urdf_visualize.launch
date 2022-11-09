@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-    <arg name="model" default="urr_o1_mira_simple.urdf"/>
+    <arg name="model" default="urr_01_mira_simple.urdf"/>
     <param name="robot_description" command="cat $(find urr_p_09_urdf)/urdf/$(arg model)"/>
 
     <!--  joint state publisher gui -->
