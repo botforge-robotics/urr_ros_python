@@ -153,5 +153,5 @@ If you are using the new custom message defined in a different package, remember
 <exec_depend>name_of_package_containing_custom_msg</exec_depend>
 ```
 ### 8. Usefull commands
-Cheat Sheet [click here](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
+Cheat Sheet [click here](https://gitlab.com/UnrealRobotics/urr_ros_python/-/blob/main/docs/ROScheatsheet.pdf)
 Ros Wiki [click here](http://wiki.ros.org/ROS/CommandLineTools)

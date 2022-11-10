@@ -19,3 +19,7 @@ source devel/setup.bash
 echo "source /home/<user_name>/Desktop/catkin_ws/devel/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
+
+### Usefull commands
+Cheat Sheet [click here](https://gitlab.com/UnrealRobotics/urr_ros_python/-/blob/main/docs/ROScheatsheet.pdf)
+Ros Wiki [click here](http://wiki.ros.org/ROS/CommandLineTools)

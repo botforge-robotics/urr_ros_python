@@ -163,5 +163,5 @@ When you are done, press Ctrl-C to terminate both the publisher and the subscrib
 
 
 ### 8. Usefull commands
-Cheat Sheet [click here](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
+Cheat Sheet [click here](https://gitlab.com/UnrealRobotics/urr_ros_python/-/blob/main/docs/ROScheatsheet.pdf)
 Ros Wiki [click here](http://wiki.ros.org/ROS/CommandLineTools)

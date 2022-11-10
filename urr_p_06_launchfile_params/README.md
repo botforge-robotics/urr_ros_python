@@ -82,5 +82,5 @@ cd launch
   For more info about roslaunch [click here](http://wiki.ros.org/roslaunch)
 
 ### 4. Usefull commands
-Cheat Sheet [click here](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
+Cheat Sheet [click here](https://gitlab.com/UnrealRobotics/urr_ros_python/-/blob/main/docs/ROScheatsheet.pdf)
 Ros Wiki [click here](http://wiki.ros.org/ROS/CommandLineTools)
