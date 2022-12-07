@@ -24,7 +24,7 @@ cd scripts
 - Write server node
 ```bash
 # get the server python script from repo
-wget https://gitlab.com/UnrealRobotics/urr_ros_python/-/tree/main/urr_p_03_services/scripts/server.py
+wget https://gitlab.com/botforge-robotics/urr_ros_python/-/tree/main/urr_p_03_services/scripts/server.py
 # or
 # creates file with name server.py
 touch server.py
@@ -68,7 +68,7 @@ cd scripts
 - Write client node
 ```bash
 # get the client python script from repo
-wget https://gitlab.com/UnrealRobotics/urr_ros_python/-/tree/main/urr_p_03_services/scripts/client.py
+wget https://gitlab.com/botforge-robotics/urr_ros_python/-/tree/main/urr_p_03_services/scripts/client.py
 # or
 # creates file with name client.py
 touch client.py
@@ -182,5 +182,5 @@ When you are done, press Ctrl-C to terminate  the server node.
 
 
 ### 8. Usefull commands
-Cheat Sheet [click here](https://gitlab.com/UnrealRobotics/urr_ros_python/-/blob/main/docs/ROScheatsheet.pdf)
+Cheat Sheet [click here](https://gitlab.com/botforge-robotics/urr_ros_python/-/blob/main/docs/ROScheatsheet.pdf)
 Ros Wiki [click here](http://wiki.ros.org/ROS/CommandLineTools)

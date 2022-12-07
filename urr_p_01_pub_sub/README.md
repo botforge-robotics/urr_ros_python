@@ -28,7 +28,7 @@ cd scripts
 - Write publisher node
 ```bash
 # get the publisher python script from repo
-wget https://gitlab.com/UnrealRobotics/urr_ros_python/-/tree/main/urr_p_01_pub_sub/scripts/publisher.py
+wget https://gitlab.com/botforge-robotics/urr_ros_python/-/tree/main/urr_p_01_pub_sub/scripts/publisher.py
 # or
 # creates file with name publisher.py
 touch publisher.py
@@ -65,7 +65,7 @@ if __name__ == '__main__':
 - Write subscriber node
 ```bash
 # get the subscriber python script from repo
-wget https://gitlab.com/UnrealRobotics/urr_ros_python/-/tree/main/urr_p_01_pub_sub/scripts/subscriber.py
+wget https://gitlab.com/botforge-robotics/urr_ros_python/-/tree/main/urr_p_01_pub_sub/scripts/subscriber.py
 # or
 # creates file with name subscriber.py
 touch subscriber.py
@@ -163,5 +163,5 @@ When you are done, press Ctrl-C to terminate both the publisher and the subscrib
 
 
 ### 8. Usefull commands
-Cheat Sheet [click here](https://gitlab.com/UnrealRobotics/urr_ros_python/-/blob/main/docs/ROScheatsheet.pdf)
+Cheat Sheet [click here](https://gitlab.com/botforge-robotics/urr_ros_python/-/blob/main/docs/ROScheatsheet.pdf)
 Ros Wiki [click here](http://wiki.ros.org/ROS/CommandLineTools)
